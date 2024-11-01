@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de Contraseña</title>
+</head>
+<body>
+    <h1>Validación de Contraseña</h1>
+    <p>Ingrese la contraseña correcta para acceder.</p>
+    
+    <button onclick="verificarContrasena()">Ingresar</button>
+    
+    <p id="resultado"></p>
+
+    <script>
+        function verificarContrasena() {
+            const contrasenaCorrecta = "1234";
+            let contrasenaIngresada;
+            
+            do {
+                contrasenaIngresada = prompt("Ingrese su contraseña:");
+                
+                if (contrasenaIngresada === null) { // Si el usuario cancela el prompt
+                    document.getElementById("resultado").innerText = "Proceso cancelado.";
+                    return;
+                }
+
+            } while (contrasenaIngresada !== contrasenaCorrecta);
+
+            document.getElementById("resultado").innerText = "¡Contraseña correcta! Acceso concedido.";
+        }
+    </script>
+</body>
+</html>
