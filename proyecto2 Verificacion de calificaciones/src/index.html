@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingreso de Calificación</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Ingrese una calificación numérica (0 a 100)</h2>
+
+<div class="form-container">
+    <form id="calificacionForm">
+        <label for="calificacion">Calificación:</label>
+        <input type="number" id="calificacion" name="calificacion" min="0" max="100" required>
+        <button type="button" onclick="validarCalificacion()">Enviar</button>
+    </form>
+</div>
+
+<p id="resultado"></p>
+
+<script>
+    function validarCalificacion() {
+        const calificacion = parseInt(document.getElementById('calificacion').value);
+        const resultado = document.getElementById('resultado');
+
+        if (calificacion >= 0 && calificacion <= 100) {
+            if (calificacion >= 90) {
+                resultado.textContent = "Calificación válida: " + calificacion + ". Aprobado con honores.";
+                resultado.className = "honores";
+            } else if (calificacion >= 70) {
+                resultado.textContent = "Calificación válida: " + calificacion + ". Aprobado.";
+                resultado.className = "aprobado";
+            } else {
+                resultado.textContent = "Calificación válida: " + calificacion + ". Reprobado. 😢";
+                resultado.className = "reprobado";
+            }
+        } else {
+            resultado.textContent = "Por favor ingrese una calificación entre 0 y 100.";
+            resultado.className = "error";
+        }
+    }
+</script>
+
+</body>
+</html>

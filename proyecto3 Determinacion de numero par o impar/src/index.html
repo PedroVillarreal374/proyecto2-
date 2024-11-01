@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par o Impar</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Ingrese un número</h2>
+
+<form id="numeroForm">
+    <input type="number" id="numero" name="numero" required>
+    <button type="button" onclick="verificarParidad()">Enviar</button>
+</form>
+
+<p id="resultado"></p>
+
+<script>
+    function verificarParidad() {
+        const numero = parseInt(document.getElementById('numero').value);
+        const resultado = document.getElementById('resultado');
+
+        if (numero % 2 === 0) {
+            resultado.textContent = "El número es par.";
+        } else {
+            resultado.textContent = "El número es impar.";
+        }
+    }
+</script>
+
+</body>
+</html>
